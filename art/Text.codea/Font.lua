@@ -25,4 +25,16 @@ function setupFont(texture,data)
   }
 end
 
-TextVersion="art Font 1.0"
+-- can be overrided by user if the "Font" project is not in the Documents folder
+TextAssetPath=asset.documents.Text
+
+TextVersion="art Font 1.1"
+
+--[[
+v1.1 changelog
+==============
+Add an asset key variableto be overridden.
+Update documentation.
+Fix fill and outline color changing.
+
+]]

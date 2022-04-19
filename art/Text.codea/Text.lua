@@ -1,16 +1,17 @@
 --[[
 The Text class can render a paragraph of ascii7 outlines text into a constrained box using a Signed Distance Field technic that provides clean redability at small or large scale.
 
-Check the "Demo" project to discovers the features.
+Look at the "Demo" Codea project for a proper usage example, like "Text_short" and "Text_full".
 
 For a small example:
 ---
 function setup()
-  txt=Text(vec2(100,50),"Hello Textbox")
+  textMode(CORNER)
+  txt=Text(vec2(100,50),"Hello Textbox!")
 end
 
 function draw()
-  txt:draw(vec2(WIDTH/2),HEIGHT/2))
+  txt:draw(vec2(WIDTH/2,HEIGHT/2))
 end
 ]]
 Text=class()
@@ -22,7 +23,7 @@ function Text:init(size,str,font,scale,fill,outline,space,cb)
   outline=outline or color(0)
   space=space or 0
   self.m=mesh()
-  applySdf(self.m,font,scale)
+  applySdf(self.m,font,scale,fill,outline)
   local layout=computeLayout(str,vec2(size.x,size.y),font.data,scale,space)
   renderLayout(self.m,layout,font.data,space)
   local b=layout.box
